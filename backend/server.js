@@ -5,7 +5,7 @@ const app = express();
 const PORT = 3000;
 
 // allow requests from Vite (frontend)
-app.use(cors({ origin: "http://localhost:5173" }));
+app.use(cors());
 app.use(express.json());
 
 // Simple mock user (no DB)
