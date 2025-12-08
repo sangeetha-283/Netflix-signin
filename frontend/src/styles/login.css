@@ -1,0 +1,128 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+/* FULL SCREEN BACKGROUND */
+.login-page {
+  min-height: 100vh;
+  width: 100%;
+  background: url("/bg-full.jpg") center/cover no-repeat;
+  position: relative;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* DARK OVERLAY */
+.background-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+/* CENTER CONTENT EXACTLY LIKE NETFLIX */
+.login-center-wrapper {
+  position: relative;
+  z-index: 5;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* LOGIN CARD */
+.login-box {
+  width: 360px;
+  background: rgba(0, 0, 0, 0.78);
+  padding: 30px 50px;
+  margin-top: 100px;
+  border-radius: 6px;
+  color: #fff;
+}
+
+/* NETFLIX LOGO */
+.logo {
+  width: 200px;
+  position: absolute;
+  top: 10px;
+  left: 150px;
+}
+
+/* HEADLINE */
+h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+/* INPUTS */
+input {
+  width: 100%;
+  padding: 15px 15px;
+  background: #333;
+  border: none;
+  font-size: large;
+  border-radius: 4px;
+  color: white;
+  margin-bottom: 14px;
+}
+
+/* BUTTONS */
+.signin-btn {
+  width: 100%;
+  padding: 12px;
+  background: #e50914;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+.code-btn {
+  width: 100%;
+  background: #333;
+  color: #fff;
+  font-weight: bolder;
+  font-size: large;
+  padding: 12px;
+  border-radius: 4px;
+  border: none;
+}
+.or-text{
+    text-align: center;
+}
+.forgot{
+    text-decoration: underline;
+    text-align: center;
+}
+.error {
+  background: #e50914;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+  text-align: center;
+}
+.captcha-text{
+    font-size: smaller;
+    color: #969393;
+}
+.anchor{
+    color: rgb(43, 152, 202);
+    font-size: small;
+}
+@media (max-width: 768px) {
+  .login-center-wrapper {
+    align-items: flex-start;
+    padding-top: 120px;
+    height: auto;
+  }
+
+  .login-box {
+    width: 100%;
+    margin: 0 20px;
+    padding: 40px 25px;
+  }
+
+  .footer {
+    padding: 40px 40px;
+    margin-top: 40px;
+  }
+}
