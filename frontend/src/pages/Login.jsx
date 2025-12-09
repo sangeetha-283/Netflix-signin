@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer/Footer";
 
-const API_BASE = "https://your-vercel-domain.vercel.app/api";
+const API_BASE = "https://netflix-signin-git-main-sangeethas-projects-a2fca69c.vercel.app/api";
 
 export default function Login() {
 
