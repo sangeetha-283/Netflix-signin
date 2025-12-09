@@ -21,8 +21,10 @@ export default function Login() {
         }
         setLoading(true);
 
+        const data = { email, password };
+
         try {
-            const res = await axios.post(`${API_BASE}/login`);
+            const res = await axios.post(`${API_BASE}/api/login`, data);
 
             localStorage.setItem("token", res.data.token);
             localStorage.setItem("user", JSON.stringify(res.data.user));
