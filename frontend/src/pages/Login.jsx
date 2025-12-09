@@ -3,9 +3,10 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer/Footer";
 
-const API_BASE = "/api";
+const API_BASE = "https://netflix-signin-kappa.vercel.app/api";
 
 export default function Login() {
+
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -19,14 +20,20 @@ export default function Login() {
             return;
         }
         setLoading(true);
+
         try {
-            const res = await axios.post(`${API_BASE}/login`, { email, password });
-            // save token & redirect
+            const res = await axios.post(`${API_BASE}/login`, {
+                email,
+                password
+            });
+
             localStorage.setItem("token", res.data.token);
             localStorage.setItem("user", JSON.stringify(res.data.user));
+
             navigate("/dashboard");
+
         } catch (err) {
-            if (err.response && err.response.data && err.response.data.message) {
+            if (err.response?.data?.message) {
                 setError(err.response.data.message);
             } else {
                 setError("Network error");

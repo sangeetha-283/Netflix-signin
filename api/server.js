@@ -1,37 +1,33 @@
 const express = require("express");
-const app = express();
 const cors = require("cors");
+const app = express();
 
-// Enable JSON
-app.use(express.json());
 app.use(cors());
+app.use(express.json());
 
-// Your mock user data
 const MOCK_USER = {
   email: "user@example.com",
   password: "Password123",
-  name: "Demo User"
+  name: "Hello User"
 };
 
-// LOGIN route
-app.post("/login", (req, res) => {
+app.post("/api/login", (req, res) => {
   const { email, password } = req.body;
+
+  if (!email || !password) {
+    return res.status(400).json({ message: "Email and password required" });
+  }
 
   if (email === MOCK_USER.email && password === MOCK_USER.password) {
     return res.json({
       message: "Login successful",
-      token: "mock-token-123",
+      token: "mock-token-12345",
       user: { name: MOCK_USER.name, email: MOCK_USER.email }
     });
   }
 
-  return res.status(401).json({ message: "Invalid email or password" });
+  return res.status(401).json({ message: "Invalid credentials" });
 });
 
-// Health check
-app.get("/health", (req, res) => {
-  res.json({ status: "ok" });
-});
-
-// ❗IMPORTANT: Export as handler for Vercel
+// Required for Vercel Serverless
 module.exports = app;
