@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer/Footer";
 
-const API_BASE = "http://localhost:3000";
+const API_BASE = "/api";
 
 export default function Login() {
     const navigate = useNavigate();
@@ -20,7 +20,7 @@ export default function Login() {
         }
         setLoading(true);
         try {
-            const res = await axios.post(`${API_BASE}/api/login`, { email, password });
+            const res = await axios.post(`${API_BASE}/login`, { email, password });
             // save token & redirect
             localStorage.setItem("token", res.data.token);
             localStorage.setItem("user", JSON.stringify(res.data.user));
