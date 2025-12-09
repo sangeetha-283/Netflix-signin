@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer/Footer";
 
-const API_BASE = "https://netflix-signin-7ofe.vercel.app";
+const API_BASE = "https://netflix-backend-smp7.onrender.com";
 
 export default function Login() {
 
