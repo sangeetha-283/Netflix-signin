@@ -1,23 +1,16 @@
 export default function handler(req, res) {
   if (req.method !== "POST") {
-    return res.status(405).json({ message: "Method not allowed" });
+    return res.status(405).json({ message: "Only POST allowed" });
   }
 
   const { email, password } = req.body;
 
-  const MOCK_USER = {
-    email: "user@example.com",
-    password: "Password123",
-    name: "Demo User"
-  };
-
-  if (email === MOCK_USER.email && password === MOCK_USER.password) {
+  if (email === "test@gmail.com" && password === "1234") {
     return res.status(200).json({
-      message: "Login successful",
-      token: "mock-token-12345",
-      user: { name: MOCK_USER.name, email: MOCK_USER.email }
+      token: "1234567890",
+      user: { email },
     });
   }
 
-  return res.status(401).json({ message: "Invalid email or password" });
+  return res.status(401).json({ message: "Invalid credentials" });
 }
